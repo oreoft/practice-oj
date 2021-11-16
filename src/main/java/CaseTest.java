@@ -3,6 +3,7 @@ import static unit.InputTools.initListNode;
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import series.LinkedSeries;
+import series.SearchSeries;
 import series.SortSeries;
 import unit.ListNode;
 
@@ -18,6 +19,7 @@ public class CaseTest {
     public static ListNode l1 = initListNode("[4, 8, 9, 11]");
     public static ListNode l2 = initListNode("[-9, 5, 6, 7]");
     public static int[] nums = {2, 5, -8, 6, 5, 9, 1};
+    public static int[] sortedNums = {1, 5, 6, 14, 19, 20};
 
 
     @Test
@@ -28,6 +30,11 @@ public class CaseTest {
     @Test
     public void sorted() {
         System.out.println(Arrays.toString(SortSeries.quickSort(nums)));
+    }
+
+    @Test
+    public void search() {
+        System.out.println(SearchSeries.binarySearch(sortedNums, 14));
     }
 
 
