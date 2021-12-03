@@ -47,4 +47,31 @@ public class ArraySeries {
     return new ArrayList<>(set);
   }
 
+  /**
+   * 合并两个有序数组为一个新的有序数组
+   * [1, 2, 3] [5, 6, 7] -> [1, 2, 3, 5, 6, 7]
+   * @param a a数组
+   * @param b b数组
+   * @return 返回一个新数组
+   */
+  public static int[] mergeTwoSortedArraysTest(int[] a, int[] b) {
+    int[] c = new int[a.length + b.length];
+    int aSize = 0, bSize = 0, cSize = 0;
+    while (aSize < a.length && bSize < b.length) {
+      if (a[aSize] < b[bSize]) {
+        c[cSize++] = a[aSize++];
+      } else {
+        c[cSize++] = b[bSize++];
+      }
+    }
+    while (aSize < a.length) {
+      c[cSize++] = a[aSize++];
+    }
+    while (bSize < b.length) {
+      c[cSize++] = b[bSize++];
+    }
+    return c;
+  }
+
+
 }

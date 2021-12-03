@@ -52,7 +52,6 @@ public class QueueSeries {
       return  element;
     }
 
-
   }
 
 
