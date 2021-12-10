@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.junit.jupiter.api.Test;
 
 /**
  * 数组的题目
@@ -17,10 +18,10 @@ import java.util.stream.Collectors;
  */
 public class ArraySeries {
 
-
   /**
    * 给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
    * https://leetcode-cn.com/problems/permutations/
+   *
    * @param nums 数组
    * @return 返回全排列
    */
@@ -47,9 +48,11 @@ public class ArraySeries {
     return new ArrayList<>(set);
   }
 
+
   /**
    * 合并两个有序数组为一个新的有序数组
    * [1, 2, 3] [5, 6, 7] -> [1, 2, 3, 5, 6, 7]
+   *
    * @param a a数组
    * @param b b数组
    * @return 返回一个新数组
@@ -73,5 +76,33 @@ public class ArraySeries {
     return c;
   }
 
+  /**
+   * 两个有序数组进行求交集, 交集以后也需要有序
+   * e.g. arr1[1, 2, 3, 4, 5] arr2[2, 4, 6] => [2, 4]
+   */
+  public static List<Integer> intersectionTwoArray(int[] a, int[] b) {
+    int ap = 0, bp = 0;
+    Set<Integer> set = new HashSet<>();
+    ArrayList<Integer> result = new ArrayList<>();
+    while (ap < a.length && bp < b.length) {
+      if (a[ap] == b[bp] && !set.contains(b[bp])) {
+        result.add(a[ap]);
+        set.add(a[ap]);
+        ap++;
+        bp++;
+      }
+      if (a[ap] > b[bp]) {
+        bp++;
+      } else {
+        ap++;
+      }
+    }
+    return result;
+  }
+
+  @Test
+  public void intersectionTwoArrayTest() {
+    System.out.println(intersectionTwoArray(new int[]{1, 2, 3, 4, 5}, new int[]{2, 4, 6}));
+  }
 
 }

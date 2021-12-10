@@ -9,6 +9,7 @@ import unit.ListNode;
 
 /**
  *  方便测试的入口方法
+ *  已经弃用, 还是直接在series里面写方便一些😂
  * @author oreft
  */
 public class CaseTest {
