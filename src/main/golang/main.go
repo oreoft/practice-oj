@@ -25,7 +25,7 @@ func main() {
 	// 获取当前时间
 	currentTime := time.Now()
 	sprintDate := fmt.Sprintf("%s %d %d %s +0800", randomMonth, 2022, randomNumber, currentTime.Format("15:04:05"))
-
+	fmt.Printf("生成的日期是: %s", sprintDate)
 	err := os.Setenv("GIT_COMMITTER_DATE", sprintDate)
 	if err != nil {
 		fmt.Println("设置 GIT_COMMITTER_DATE 失败:", err)
@@ -37,7 +37,7 @@ func main() {
 		return
 	}
 	// 执行 git commit 命令
-	commitCmd := exec.Command("git", "commit", "--date=\" "+sprintDate+"\"", "-am", "feat(go): add reverse")
+	commitCmd := exec.Command("git", "commit", "--date=\" "+sprintDate+"\"", "-am", "feat(go): add isValid")
 	commitCmd.Stdout = os.Stdout
 	commitCmd.Stderr = os.Stderr
 
