@@ -24,7 +24,7 @@ func main() {
 	randomNumber := rand.Intn(25)
 	// 获取当前时间
 	currentTime := time.Now()
-	sprintDate := fmt.Sprintf("%s %d %d %s +0800", randomMonth, 2022, randomNumber, currentTime.Format("15:04:05"))
+	sprintDate := fmt.Sprintf("%d %d %s %d +0800", randomMonth, randomNumber, currentTime.Format("15:04:05"), 2022)
 	fmt.Printf("生成的日期是: %s \n", sprintDate)
 	err := os.Setenv("GIT_COMMITTER_DATE", sprintDate)
 	if err != nil {
@@ -37,7 +37,7 @@ func main() {
 		return
 	}
 	// 执行 git commit 命令
-	commitCmd := exec.Command("git", "commit", "--date=\" "+sprintDate+"\"", "-am", "feat(go): add findMedianSortedArrays")
+	commitCmd := exec.Command("git", "commit", "--date=\" "+sprintDate+"\"", "-am", "feat(go): add generateParenthesis")
 	commitCmd.Stdout = os.Stdout
 	commitCmd.Stderr = os.Stderr
 
