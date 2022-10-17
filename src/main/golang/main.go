@@ -37,7 +37,7 @@ func main() {
 		return
 	}
 	// 执行 git commit 命令
-	commitCmd := exec.Command("git", "commit", "--date=\" "+sprintDate+"\"", "-am", "feat(go): add isValid")
+	commitCmd := exec.Command("git", "commit", "--date=\" "+sprintDate+"\"", "-am", "feat(go): add findMedianSortedArrays")
 	commitCmd.Stdout = os.Stdout
 	commitCmd.Stderr = os.Stderr
 
