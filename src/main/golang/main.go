@@ -25,7 +25,7 @@ func main() {
 	// 获取当前时间
 	currentTime := time.Now()
 	sprintDate := fmt.Sprintf("%s %d %d %s +0800", randomMonth, 2022, randomNumber, currentTime.Format("15:04:05"))
-	fmt.Printf("生成的日期是: %s", sprintDate)
+	fmt.Printf("生成的日期是: %s \n", sprintDate)
 	err := os.Setenv("GIT_COMMITTER_DATE", sprintDate)
 	if err != nil {
 		fmt.Println("设置 GIT_COMMITTER_DATE 失败:", err)
