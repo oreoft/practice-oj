@@ -1,4 +1,5 @@
 package series;
+
 import unit.ListNode;
 
 /**
@@ -91,6 +92,22 @@ public class LinkedSeries {
             p2 = p2 == null ? l1 : p2.next;
         }
         return p1;
+    }
+
+    public static ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode pre = null;
+        ListNode curr = head;
+        while (curr.next != null) {
+            ListNode temp = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = temp;
+        }
+
+        return pre;
     }
 
 

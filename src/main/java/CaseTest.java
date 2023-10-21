@@ -1,11 +1,12 @@
-import static unit.InputTools.initListNode;
-
-import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 import series.LinkedSeries;
 import series.SearchSeries;
 import series.SortSeries;
 import unit.ListNode;
+
+import java.util.Arrays;
+
+import static unit.InputTools.initListNode;
 
 /**
  *  方便测试的入口方法
@@ -38,6 +39,10 @@ public class CaseTest {
         System.out.println(SearchSeries.binarySearch(sortedNums, 14));
     }
 
+    @Test
+    public void reverseList() {
+        System.out.println(LinkedSeries.reverseList(l1));
+    }
 
 
 }
