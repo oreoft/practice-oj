@@ -200,10 +200,42 @@ public class ArraySeries {
 
     }
 
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        if (nums2.length == 0 || nums1.length == 0) {
+            return;
+        }
+        if (m == 0) {
+            nums1 = nums2;
+            return;
+        }
+        int[] moreArr = nums1.length >= nums2.length ? nums1 : nums2;
+        int[] lessArr = nums1.length < nums2.length ? nums1 : nums2;
+        int[] temp = new int[nums1.length];
+        int index = 0;
+        int moreIndex = 0;
+        int lessIndex = 0;
+        while (index < moreArr.length) {
+            if (lessArr[lessIndex] <= moreArr[moreIndex]) {
+                temp[index] = lessArr[lessIndex];
+                lessIndex++;
+            } else {
+                temp[index] = moreArr[moreIndex];
+                moreIndex++;
+            }
+            index++;
+        }
+        for (int i : temp) {
+            System.out.println(i);
+        }
+    }
+
     @Test
     public void judgePalindromeTest() {
-        System.out.println(judgePalindrome_3(123));
-        System.out.println(judgePalindrome_3(121));
+        int[] ints = {1, 2, 3, 0, 0};
+        merge(ints, 3, new int[]{2, 5, 6}, 3);
+        for (int anInt : ints) {
+            System.out.println(anInt);
+        }
     }
 
 }
